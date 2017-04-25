@@ -9,12 +9,10 @@ def getUsers():
     global url, token
     return json.loads(requests.get("%s/users?private_token=%s" % (url, token))._content)
 
-
 def createUser(name, user, pswd, email):
     global url, token
     data = {"name": name, "username": user, "password": pswd, "email": email}
     headers = {"Content_Type": "application/json"}
-
     return json.loads(requests.post("%s/users?private_token=%s" % (url, token), data=data, headers=headers)._content)
 
 def getProjects():
