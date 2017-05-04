@@ -20,6 +20,10 @@ def index():
 
     return render_template('index.html', containers=containers)
 
+@app.route('/container/')
+def container_new():
+    return render_template('cadastro.html');
+
 @app.route('/container/start/<id>')
 def container_start(id):
     global docker
