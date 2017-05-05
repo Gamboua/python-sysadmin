@@ -20,16 +20,20 @@ class DockerModulo:
     def stopContainer(self, id):
         return self.cli.stop(container=id)
 
-    def createContainer(self, nome, hn):
+    def createContainer(self, nome, hn, img):
         try:
             container = self.cli.create_container(
-                name=nome, hostname=hn, image="debian",
+                name=nome, hostname=hn, image=img,
                 detach=True, stdin_open=True, tty=True
             )
             self.cli.start(container=container.get('Id'))
             return container
         except Exception as e:
             raise Exception(e)
+
+    def removeContainer(self, id):
+        self.cli.stop(container=id)
+        return self.cli.remove_container(id)
 
     def inspectContainer(self, container_id):
         try:

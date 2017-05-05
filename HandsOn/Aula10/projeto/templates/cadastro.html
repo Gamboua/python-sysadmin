@@ -47,6 +47,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/">Home</a></li>
             <li class="active"><a href="/container/">Novo</a></li>
+            <li><a href="/container/upload">Upload</a></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
@@ -54,11 +55,25 @@
 
     <div class="container">
         <br />
-        <form>
+        <form action="/container/" method="post">
           <div class="form-group">
             <label for="nome">Container</label>
-            <input type="text" class="form-control" id="nome" placeholder="Nome">
+            <input type="text" class="form-control" name="nome" placeholder="Nome">
           </div>
+
+          <div class="form-group">
+              <label for="image">Imagem</label>
+                <select class="form-control" name="image">
+                    <option value="debian">Debian</option>
+                    <option value="ubuntu">Ubuntu</option>
+                </select>
+          </div>
+
+          <div class="form-group">
+              <label for="hostname">Hostname</label>
+              <input type="text" class="form-control" name="hostname" placeholder="Hostname">
+          </div>
+
           <button type="submit" class="btn btn-default">Submit</button>
         </form>
     </div>
